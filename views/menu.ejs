@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: #f8f9fa;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .menu-container {
+            margin-top: 50px;
+        }
+
+        .menu-card {
+            transition: 0.3s;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .menu-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .menu-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+        }
+
+        .menu-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #dc3545;
+        }
+
+        .menu-price {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #28a745;
+        }
+
+        .btn-order {
+            border-radius: 20px;
+            transition: 0.3s;
+        }
+
+        .btn-order:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-danger">
+        <div class="container">
+            <a class="navbar-brand" href="#">Food Delivery</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="/menu">Menu</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/cart">Cart</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/logout">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Menu Items -->
+    <div class="container menu-container">
+        <div class="row">
+            <% menuItems.forEach(item => { %>
+                <div class="col-md-4 mb-4">
+                    <div class="card menu-card">
+                        <img src="<%= item.image %>" class="card-img-top" alt="<%= item.name %>">
+                        <div class="card-body text-center">
+                            <h5 class="menu-title"><%= item.name %></h5>
+                            <p class="menu-price">$<%= item.price.toFixed(2) %></p>
+                            <a href="/add-to-cart/<%= item.id %>" class="btn btn-success btn-order">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+            <% }); %>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

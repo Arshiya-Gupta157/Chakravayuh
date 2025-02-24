@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            animation: fadeIn 1.2s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .container {
+            margin-top: 60px;
+            text-align: center;
+            padding: 40px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #dc3545;
+            font-weight: bold;
+        }
+
+        .btn-custom {
+            width: 100%;
+            padding: 12px;
+            font-size: 1.1rem;
+            border-radius: 10px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .btn-custom:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .section-title {
+            margin-top: 30px;
+            font-weight: bold;
+        }
+
+        .feature-cards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .feature-card {
+            width: 280px;
+            padding: 20px;
+            border-radius: 10px;
+            background: white;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease-in-out;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        footer {
+            margin-top: 50px;
+            padding: 20px;
+            background: #343a40;
+            color: white;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold text-danger" href="#">Food Delivery</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/menu">Menu</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/restaurants">Restaurants</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/orders">Orders</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/profile">Profile</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <h1>Welcome, <%= user.name %>!</h1>
+        <p class="lead">Email: <%= user.email %></p>
+
+        <!-- Feature Sections -->
+        <h2 class="section-title text-danger">Explore Our Features</h2>
+        <div class="feature-cards">
+
+            <a href="/profile" class="btn btn-danger btn-custom">Edit Profile</a>
+            <a href="/menu" class="btn btn-warning btn-custom">View Menu</a>
+            <a href="/restaurants" class="btn btn-primary btn-custom">Find Restaurants</a>
+            <a href="/orders" class="btn btn-success btn-custom">Track Orders</a>
+
+        </div>
+
+        <a href="/logout" class="btn btn-dark btn-logout mt-4">Logout</a>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 Food Delivery. All rights reserved.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
